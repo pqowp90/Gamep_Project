@@ -18,11 +18,11 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(20.f, 30.f));
 
 	// image 업로드
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\jiwoo.bmp");
+	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Jiwoo.bmp");
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 150.f), Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+	GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 0.f), Vec2(33.f, 57.f), Vec2(33.f, 0.f), 2, 0.2f);
 	GetAnimator()->Play(L"Jiwoofront", true);
 
 	// animation offset 위로 올리기. 
