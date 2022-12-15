@@ -42,7 +42,7 @@ public:
 	friend class Animator;
 public:
 	void Update();
-	void Render(HDC _dc);
+	void Render(HDC _dc, Vec2 scale);
 	void Create(Image* _pImage, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep, UINT _iFrameCount, float _fDuration);
 };
 

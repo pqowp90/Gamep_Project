@@ -54,8 +54,8 @@ void Animator::Update()
 	}
 }
 
-void Animator::Render(HDC _dc)
+void Animator::Render(HDC _dc, Vec2 scale)
 {
 	if (nullptr != m_pCurAni)
-		m_pCurAni->Render(_dc);
+		m_pCurAni->Render(_dc, scale);
 }

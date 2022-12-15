@@ -20,6 +20,6 @@ public:
 	Animation* FindAnimation(const wstring _strName);
 	void Play(const wstring _strName, bool _bRepeat);
 	void Update();
-	void Render(HDC _dc);
+	void Render(HDC _dc, Vec2 scale);
 };
 

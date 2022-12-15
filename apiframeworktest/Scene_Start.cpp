@@ -24,7 +24,7 @@ void Scene_Start::Enter()
 	// Object Ãß°¡
 	Object* pObj = new Player;
 	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/2, Core::GetInst()->GetResolution().y/2));
-	pObj->SetScale(Vec2(100.f,100.f));
+	pObj->SetScale(Vec2(3.f,3.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 
 //	Object* pOtherPlayer = new Player(*(Player*)pObj);
