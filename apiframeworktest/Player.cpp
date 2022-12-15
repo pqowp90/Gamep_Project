@@ -18,7 +18,7 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(20.f, 30.f));
 
 	// image 업로드
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\Jiwoo.bmp");
+	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\player.bmp");
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
