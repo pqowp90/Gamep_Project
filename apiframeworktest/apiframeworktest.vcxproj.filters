@@ -86,6 +86,9 @@
     <Filter Include="Engine\03. Manager\04. Object\Bullet">
       <UniqueIdentifier>{847f42a6-7d6d-4e74-8f48-ade7a3898880}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\04. Object\Background">
+      <UniqueIdentifier>{c790d00c-d194-43f9-8608-88363b9e2856}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -184,6 +187,9 @@
     <ClInclude Include="SoundMgr.h">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Engine\03. Manager\04. Object\Background</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -277,6 +283,9 @@
     </ClCompile>
     <ClCompile Include="SoundMgr.cpp">
       <Filter>Engine\03. Manager\SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Engine\03. Manager\04. Object\Background</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
