@@ -19,7 +19,7 @@ Scene_Start::~Scene_Start()
 }
 void Scene_Start::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\pianobgm.wav");
+	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"The Son of Flynn (From  TRON Legacy Score).mp3");
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
 	Object* pObj = new Player;
