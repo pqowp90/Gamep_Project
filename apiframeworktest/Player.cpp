@@ -38,7 +38,8 @@ Player::~Player()
 void Player::Update()
 {
 	Vec2 vPos = GetPos();
-	if(KEY_HOLD(KEY::UP))
+	PlayerInput();
+	/*if(KEY_HOLD(KEY::UP))
 	{
 		vPos.y -= 300.f * fDT;
 	}
@@ -57,9 +58,34 @@ void Player::Update()
 	if (KEY_TAP(KEY::SPACE))
 	{
 		CreateBullet();
-	}
+	}*/
+	vPos.x += velocity.x * fDT;
+	vPos.y -= velocity.y * fDT;
+
 	SetPos(vPos);
 	GetAnimator()->Update();
+}
+void Player::PlayerInput()
+{
+	if (KEY_HOLD(KEY::UP))
+	{
+		velocity.y += upForce * fDT;
+	}
+	else
+	{
+		velocity.y -= grabity * fDT * 30.f;
+
+	}
+
+	/*if (velocity.y > upMaxForce)
+	{
+		velocity.y = upMaxForce;
+	}
+	else if (velocity.y < -upMaxForce)
+	{
+		velocity.y = -upMaxForce;
+	}*/
+
 }
 
 void Player::CreateBullet()

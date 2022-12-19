@@ -14,6 +14,12 @@ public:
     //    , m_pImage(_origin.m_pImage)
     //{}
     ~Player();
+public:
+    float grabity = 9.81;
+    Vec2 velocity;
+    float upMaxForce = 300;
+    float upForce = 600;
+
 private:
     void CreateBullet();
 
@@ -21,6 +27,7 @@ private:
     CLONE(Player);
 public:
     void Update()       override;
+    void PlayerInput();
     void Render(HDC _dc) override;
 };
 
