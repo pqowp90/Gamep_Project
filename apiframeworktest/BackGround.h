@@ -4,7 +4,7 @@ class Image;
 class Background : public Object
 {
 private:
-    Image* m_pImage;
+    Image* m_bImage;
     bool isLoop;
 public:
     Background();
@@ -14,7 +14,6 @@ public:
     //{}
     ~Background();
 private:
-
     //    Player* Clone{ return new Player(*this); }
     CLONE(Background);
 public:
