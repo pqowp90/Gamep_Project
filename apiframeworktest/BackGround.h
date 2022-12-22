@@ -7,11 +7,8 @@ private:
     Image* m_bImage;
     bool isLoop;
 public:
-    Background();
-    //Player(const Player& _origin) 
-    //    : Object(_origin)
-    //    , m_pImage(_origin.m_pImage)
-    //{}
+    //Background();
+    Background(Image* _Img);
     ~Background();
 private:
     //    Player* Clone{ return new Player(*this); }

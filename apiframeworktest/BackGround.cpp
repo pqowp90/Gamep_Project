@@ -10,11 +10,10 @@
 #include "Animator.h"
 #include "Animation.h"
 
-Background::Background()
+Background::Background(Image* _Img)
 {
-	Image* bImg = ResMgr::GetInst()->ImgLoad(L"BackGround", L"Image\\title.bmp");
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"BackGround", bImg, Vec2(0.f, 0.f), Vec2(840.f, 424.f), Vec2(840.f, 0.f), 2, 0.45f);
+	GetAnimator()->CreateAnimation(L"BackGround", _Img, Vec2(0.f, 0.f), Vec2(840.f, 424.f), Vec2(840.f, 0.f), 2, 0.45f);
 	GetAnimator()->Play(L"BackGround", true);
 	Animation* bAnim = GetAnimator()->FindAnimation(L"BackGround");
 	for (size_t i = 0; i < bAnim->GetMaxFrame(); i++)

@@ -4,13 +4,10 @@ class Image;
 class TitleText : public Object
 {
 private:
-    Image* m_bImage;
+    Image* m_tImage;
 public:
-    TitleText();
-    //Player(const Player& _origin) 
-    //    : Object(_origin)
-    //    , m_pImage(_origin.m_pImage)
-    //{}
+    //TitleText();
+    TitleText(Image* _Img);
     ~TitleText();
 private:
     //    Player* Clone{ return new Player(*this); }

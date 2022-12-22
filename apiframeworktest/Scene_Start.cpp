@@ -12,6 +12,7 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "SoundMgr.h"
+#include "ResMgr.h"
 Scene_Start::Scene_Start()
 {
 }
@@ -24,11 +25,11 @@ void Scene_Start::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\BackgroundBGM.mp3");
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
-	Object* bObj = new Background;
+	Background* bObj = new Background(ResMgr::GetInst()->ImgLoad(L"BackGround", L"Image\\title.bmp"));
 	bObj->SetPos(Vec2(230.f, 170.f));
 	bObj->SetScale(Vec2(2.f, 2.f));
 	AddObject(bObj, GROUP_TYPE::BACKGROUND);
-	Object* tObj = new TitleText;
+	TitleText* tObj = new TitleText(ResMgr::GetInst()->ImgLoad(L"TitleText", L"Image\\logo.bmp"));
 	tObj->SetPos(Vec2(490.f, 200.f));
 	tObj->SetScale(Vec2(2.f, 2.f));
 	AddObject(tObj, GROUP_TYPE::TEXT);

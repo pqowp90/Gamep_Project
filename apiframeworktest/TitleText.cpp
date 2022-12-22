@@ -10,9 +10,9 @@
 #include "Animator.h"
 #include "Animation.h"
 
-TitleText::TitleText()
+TitleText::TitleText(Image* _Img)
 {
-	Image* bImg = ResMgr::GetInst()->ImgLoad(L"TitleText", L"Image\\logo.bmp");
+	Image* bImg = _Img;
 	CreateAnimator();
 	GetAnimator()->CreateAnimation(L"TitleText", bImg, Vec2(0.f, 0.f), Vec2(325.f, 325.f), Vec2(325.f, 0.f), 1, 0.2f);
 	GetAnimator()->Play(L"TitleText", true);
