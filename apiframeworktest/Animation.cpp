@@ -4,6 +4,7 @@
 #include "Animator.h"
 #include "Image.h"
 #include "Object.h"
+
 Animation::Animation()
 	: m_pAnimator(nullptr)
 	, m_iCurFrm(0)

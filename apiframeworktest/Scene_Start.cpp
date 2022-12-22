@@ -2,6 +2,8 @@
 #include "Scene_Start.h"
 #include "Object.h"
 #include "Player.h"
+#include "Background.h"
+#include "TitleText.h"
 #include "Monster.h"
 #include "Core.h"
 #include "Image.h"
@@ -10,6 +12,7 @@
 #include "KeyMgr.h"
 #include "SceneMgr.h"
 #include "SoundMgr.h"
+#include "ResMgr.h"
 Scene_Start::Scene_Start()
 {
 }
@@ -19,14 +22,21 @@ Scene_Start::~Scene_Start()
 }
 void Scene_Start::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"The Son of Flynn (From  TRON Legacy Score).mp3");
+	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\BackgroundBGM.mp3");
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
-	Object* pObj = new Player;
+	Background* bObj = new Background(ResMgr::GetInst()->ImgLoad(L"BackGround", L"Image\\title.bmp"));
+	bObj->SetPos(Vec2(230.f, 170.f));
+	bObj->SetScale(Vec2(2.f, 2.f));
+	AddObject(bObj, GROUP_TYPE::BACKGROUND);
+	TitleText* tObj = new TitleText(ResMgr::GetInst()->ImgLoad(L"TitleText", L"Image\\logo.bmp"));
+	tObj->SetPos(Vec2(490.f, 200.f));
+	tObj->SetScale(Vec2(2.f, 2.f));
+	AddObject(tObj, GROUP_TYPE::TEXT);
+	/*Object* pObj = new Player;
 	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/2, Core::GetInst()->GetResolution().y/2));
 	pObj->SetScale(Vec2(3.f,3.f));
-	AddObject(pObj, GROUP_TYPE::PLAYER);
-
+	AddObject(pObj, GROUP_TYPE::PLAYER);*/
 //	Object* pOtherPlayer = new Player(*(Player*)pObj);
 	/*Object* pOtherPlayer = pObj->Clone();
 	pOtherPlayer->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f + 100.f, Core::GetInst()->GetResolution().y / 2.f));
