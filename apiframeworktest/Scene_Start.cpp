@@ -25,7 +25,7 @@ void Scene_Start::Enter()
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
 	Object* bObj = new Background;
-	bObj->SetPos(Vec2(230.f, 150.f));
+	bObj->SetPos(Vec2(230.f, 170.f));
 	bObj->SetScale(Vec2(2.f, 2.f));
 	AddObject(bObj, GROUP_TYPE::BACKGROUND);
 	Object* tObj = new TitleText;
