@@ -15,9 +15,9 @@ public:
     //{}
     ~Player();
 public:
-    float grabity = 9.81;
+    float grabity = 9.81f;
     Vec2 velocity;
-    float upMaxForce = 300;
+    float upMaxForce = 100;
     float upForce = 600;
 
 private:

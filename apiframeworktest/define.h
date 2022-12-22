@@ -44,6 +44,7 @@ enum class GROUP_TYPE
 	BULLET_MONSTER,
 	MONSTER,
 	BACKGROUND,
+	TEXT,
 	END = 32,
 };
 

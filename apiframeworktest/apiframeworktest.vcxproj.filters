@@ -89,6 +89,9 @@
     <Filter Include="Engine\03. Manager\04. Object\Background">
       <UniqueIdentifier>{c790d00c-d194-43f9-8608-88363b9e2856}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\04. Object\TitleText">
+      <UniqueIdentifier>{485cd355-3190-405e-82e5-5eac10f9e925}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -190,6 +193,9 @@
     <ClInclude Include="Background.h">
       <Filter>Engine\03. Manager\04. Object\Background</Filter>
     </ClInclude>
+    <ClInclude Include="TitleText.h">
+      <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -220,7 +226,6 @@
     <ClCompile Include="Vec2.cpp">
       <Filter>Engine\01. Header</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="TimeMgr.cpp">
       <Filter>Engine\03. Manager\TimeMgr</Filter>
     </ClCompile>
@@ -286,6 +291,12 @@
     </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>Engine\03. Manager\04. Object\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Engine\03. Manager\04. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleText.cpp">
+      <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
