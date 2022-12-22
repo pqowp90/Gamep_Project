@@ -10,13 +10,13 @@
 #include "Animator.h"
 #include "Animation.h"
 
-TitleText::TitleText(Image* _Img)
+TitleText::TitleText(std::wstring _Key, Image* _Img)
 {
 	Image* bImg = _Img;
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"TitleText", bImg, Vec2(0.f, 0.f), Vec2(325.f, 325.f), Vec2(325.f, 0.f), 1, 0.2f);
-	GetAnimator()->Play(L"TitleText", true);
-	Animation* pAnim = GetAnimator()->FindAnimation(L"TitleText");
+	GetAnimator()->CreateAnimation(_Key, bImg, Vec2(0.f, 0.f), Vec2(325.f, 325.f), Vec2(325.f, 325.f), 1, 0.2f);
+	GetAnimator()->Play(_Key, true);
+	Animation* pAnim = GetAnimator()->FindAnimation(_Key);
 	pAnim->GetFrame(0).vOffset = Vec2(10.f, 0.f);
 }
 

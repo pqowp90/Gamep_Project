@@ -45,6 +45,7 @@ enum class GROUP_TYPE
 	MONSTER,
 	BACKGROUND,
 	TEXT,
+	BUTTON,
 	END = 32,
 };
 
