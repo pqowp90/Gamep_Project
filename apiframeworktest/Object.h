@@ -1,6 +1,7 @@
 #pragma once
 class Collider;
 class Animator;
+class Panel;
 class Object
 {
 private:
