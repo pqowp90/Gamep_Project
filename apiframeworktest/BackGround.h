@@ -8,7 +8,7 @@ private:
     bool isLoop;
 public:
     //Background();
-    Background(Image* _Img);
+    Background(std::wstring _Key, Image* _Img);
     ~Background();
 private:
     //    Player* Clone{ return new Player(*this); }

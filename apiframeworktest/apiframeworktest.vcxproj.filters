@@ -92,6 +92,9 @@
     <Filter Include="Engine\03. Manager\04. Object\TitleText">
       <UniqueIdentifier>{485cd355-3190-405e-82e5-5eac10f9e925}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\04. Object\Panel">
+      <UniqueIdentifier>{c4c2e9a0-8e20-4172-ad4b-b4ef44df288f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -196,6 +199,9 @@
     <ClInclude Include="TitleText.h">
       <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
     </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Engine\03. Manager\04. Object\Panel</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -297,6 +303,9 @@
     </ClCompile>
     <ClCompile Include="TitleText.cpp">
       <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>Engine\03. Manager\04. Object\Panel</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

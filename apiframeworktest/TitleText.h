@@ -7,7 +7,7 @@ private:
     Image* m_tImage;
 public:
     //TitleText();
-    TitleText(Image* _Img);
+    TitleText(std::wstring _Key, Image* _Img);
     ~TitleText();
 private:
     //    Player* Clone{ return new Player(*this); }
