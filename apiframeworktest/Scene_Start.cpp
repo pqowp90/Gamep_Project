@@ -13,6 +13,8 @@
 #include "SceneMgr.h"
 #include "SoundMgr.h"
 #include "ResMgr.h"
+#include "Animation.h"
+#include "Animator.h"
 Scene_Start::Scene_Start()
 {
 }
@@ -26,13 +28,17 @@ void Scene_Start::Enter()
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
 	Background* bObj = new Background(L"BackGround" ,ResMgr::GetInst()->ImgLoad(L"BackGround", L"Image\\title.bmp"));
-	bObj->SetPos(Vec2(230.f, 170.f));
+	Animation* bAnim = bObj->GetAnimator()->FindAnimation(L"BackGround");
+	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x - bAnim->GetFrame(0).vSlice.x + 220.f, Core::GetInst()->GetResolution().y - bAnim->GetFrame(0).vSlice.y));
 	bObj->SetScale(Vec2(2.f, 2.f)); 
 	AddObject(bObj, GROUP_TYPE::BACKGROUND);
+
 	TitleText* tObj = new TitleText(L"TitleText", ResMgr::GetInst()->ImgLoad(L"TitleText", L"Image\\logo.bmp"));
-	tObj->SetPos(Vec2(490.f, 200.f));
+	Animation* tAnim = tObj->GetAnimator()->FindAnimation(L"TitleText");
+	tObj->SetPos(Vec2(660.f, 300.f));
 	tObj->SetScale(Vec2(2.f, 2.f));
 	AddObject(tObj, GROUP_TYPE::TEXT);
+
 	/*Object* pObj = new Player;
 	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/2, Core::GetInst()->GetResolution().y/2));
 	pObj->SetScale(Vec2(3.f,3.f));

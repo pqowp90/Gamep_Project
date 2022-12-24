@@ -32,16 +32,19 @@ void Scene_02::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM2", true, L"Sound\\GetLucky.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM2");
+
 	t2Obj = new Panel(L"StartButton2", ResMgr::GetInst()->ImgLoad(L"StartButton2", L"Image\\Get Lucky Panel.bmp"));
-	t2Obj->SetPos(Vec2(380.f, 300.f));
 	t2Obj->SetScale(Vec2(3.f, 3.f));
+	t2Obj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
 	AddObject(t2Obj, GROUP_TYPE::BUTTON);
+
 	a2Obj = new Arrow(L"LeftArrow", ResMgr::GetInst()->ImgLoad(L"LeftArrow", L"Image\\LeftArrow.bmp"));
-	a2Obj->SetPos(Vec2(50.f, 335.f));
+	a2Obj->SetPos(Vec2(100.f, 385.f));
 	a2Obj->SetScale(Vec2(3.f, 3.f));
 	AddObject(a2Obj, GROUP_TYPE::BUTTON);
+
 	b2Obj = new Arrow(L"RightArrow", ResMgr::GetInst()->ImgLoad(L"RightArrow", L"Image\\RightArrow.bmp"));
-	b2Obj->SetPos(Vec2(1165.f, 335.f));
+	b2Obj->SetPos(Vec2(1165.f, 385.f));
 	b2Obj->SetScale(Vec2(3.f, 3.f));
 	AddObject(b2Obj, GROUP_TYPE::BUTTON);
 }
