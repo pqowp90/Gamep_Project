@@ -84,4 +84,8 @@ void Object::Component_Render(HDC _dc)
 	if (nullptr != m_pAnimator)
 		m_pAnimator->Render(_dc, m_vScale);
 }
+float Object::Lerp(float now, float be, float time)
+{
+	return now + time * (be - now);
+}
 

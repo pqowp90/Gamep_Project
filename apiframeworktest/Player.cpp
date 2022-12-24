@@ -11,6 +11,7 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Animation.h"
+#include "SoundMgr.h"
 Player::Player()
 {
 	// collider »õ¼º
@@ -37,6 +38,7 @@ Player::~Player()
 }
 void Player::Update()
 {
+	
 	Vec2 vPos = GetPos();
 	PlayerInput();
 	/*if(KEY_HOLD(KEY::UP))

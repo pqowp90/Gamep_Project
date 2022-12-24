@@ -55,6 +55,21 @@ void SoundMgr::Play(const wstring& _strKey)
 	m_pSystem->playSound(ptSound->pSound, NULL, false, &m_pChannel[(UINT)eChannel]);
 }
 
+void SoundMgr::Play(const wstring& _strKey, double bitTime)
+{
+	start = clock();
+	musicBit = bitTime;
+	PSOUNDINFO ptSound = FindSound(_strKey);
+	if (!ptSound)
+		return;
+
+	m_pSystem->update();
+	SOUND_CHANNEL eChannel = SOUND_CHANNEL::SC_BGM;
+	if (!ptSound->bLoop)
+		eChannel = SOUND_CHANNEL::SC_EFFECT;
+	m_pSystem->playSound(ptSound->pSound, NULL, false, &m_pChannel[(UINT)eChannel]);
+}
+
 void SoundMgr::Pause(SOUND_CHANNEL _eChannel, bool _p)
 {
 	m_pChannel[(UINT)_eChannel]->setPaused(_p);
@@ -76,4 +91,16 @@ PSOUNDINFO SoundMgr::FindSound(const wstring& _strKey)
 	if (iter == m_mapSod.end())
 		return nullptr;
 	return iter->second;
+}
+
+void SoundMgr::Update()
+{
+	end = clock();
+	result = (double)(end - start) - minus;
+
+	if (result > musicBit)
+	{
+		minus += musicBit;
+
+	}
 }

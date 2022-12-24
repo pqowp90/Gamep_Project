@@ -39,6 +39,8 @@ public:
 
 	void	Component_Render(HDC _dc);
 
+	static float Lerp(float now, float be, float time);
+
 	virtual Object* Clone() abstract;
 public:
 	Object();

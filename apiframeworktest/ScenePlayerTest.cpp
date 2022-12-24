@@ -22,13 +22,14 @@ ScenePlayerTest::~ScenePlayerTest()
 }
 void ScenePlayerTest::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\TitleBGM.mp3");
+	SoundMgr::GetInst()->LoadSound(L"BGM3", true, L"Sound\\GetLucky.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
-	SoundMgr::GetInst()->Play(L"BGM");
+	SoundMgr::GetInst()->Play(L"BGM3");
 	// Object Ãß°¡
 
 	Object* pObj = new Player;
-	pObj->SetPos(Vec2(Core::GetInst()->GetResolution().x/2, Core::GetInst()->GetResolution().y/2));
+	pObj->SetPos(Vec2(0.f, Core::GetInst()->GetResolution().y/2.f));
+	//Core::GetInst()->GetResolution().x/2
 	pObj->SetScale(Vec2(3.f,3.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 	//	Object* pOtherPlayer = new Player(*(Player*)pObj);
