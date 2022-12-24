@@ -92,8 +92,16 @@
     <Filter Include="Engine\03. Manager\04. Object\TitleText">
       <UniqueIdentifier>{485cd355-3190-405e-82e5-5eac10f9e925}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="Engine\05. Scene\ScenePlayerTest">
       <UniqueIdentifier>{2b8865c6-a8e5-4224-b854-094c34303e41}</UniqueIdentifier>
+=======
+    <Filter Include="Engine\03. Manager\04. Object\Panel">
+      <UniqueIdentifier>{c4c2e9a0-8e20-4172-ad4b-b4ef44df288f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene\Stage1">
+      <UniqueIdentifier>{1278fdca-802a-408e-984c-0dc2419a338a}</UniqueIdentifier>
+>>>>>>> 0a2366873bad1ba44e0f41b87cff09ba33557451
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -199,8 +207,16 @@
     <ClInclude Include="TitleText.h">
       <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="ScenePlayerTest.h">
       <Filter>Engine\05. Scene\ScenePlayerTest</Filter>
+=======
+    <ClInclude Include="Panel.h">
+      <Filter>Engine\03. Manager\04. Object\Panel</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\05. Scene\Stage1</Filter>
+>>>>>>> 0a2366873bad1ba44e0f41b87cff09ba33557451
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -304,8 +320,16 @@
     <ClCompile Include="TitleText.cpp">
       <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="ScenePlayerTest.cpp">
       <Filter>Engine\05. Scene\ScenePlayerTest</Filter>
+=======
+    <ClCompile Include="Panel.cpp">
+      <Filter>Engine\03. Manager\04. Object\Panel</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\05. Scene\Stage1</Filter>
+>>>>>>> 0a2366873bad1ba44e0f41b87cff09ba33557451
     </ClCompile>
   </ItemGroup>
 </Project>

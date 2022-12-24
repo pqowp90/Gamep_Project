@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\USER\Documents\GitHub\Gamep_Project\OutPut\bin_debug\Gamep_winapiframework.exe</FullPath>
+=======
+      <FullPath>C:\Users\USER\Documents\Gamep_Project\OutPut\bin_debug\Gamep_winapiframework.exe</FullPath>
+>>>>>>> 0a2366873bad1ba44e0f41b87cff09ba33557451
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

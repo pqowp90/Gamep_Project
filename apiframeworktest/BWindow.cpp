@@ -14,6 +14,9 @@ LRESULT BWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{
+	case WM_MOUSEMOVE:
+		GetCursorPos(Core::GetInst()->GetMousePos());
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0); // WM_QUIT
 		break;

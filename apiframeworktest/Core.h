@@ -13,7 +13,7 @@ public:
 		static Core core;
 		return &core;
 	}
-private:
+public:
 	Core();
 	~Core();
 private:
@@ -21,7 +21,7 @@ private:
 	HDC							m_hDC;   // 메인 윈도우에 Draw할 DC
 	HBITMAP						m_hBit;	 //사본용 비트맵
 	HDC							m_memDC; // 사본용 DC
-
+	POINT                       m_mouse;
 	// 자주 사용하는 GDI(Graphic Device Interface) Object
 	HBRUSH m_arrBrush[(UINT)BRUSH_TYPE::END];
 	HPEN m_arrPen[(UINT)PEN_TYPE::END];
@@ -32,6 +32,7 @@ public:
 	const HDC& GetMainDC() { return m_hDC; }
 	HBRUSH GetBrush(BRUSH_TYPE _eType) { return m_arrBrush[(UINT)_eType]; }
 	HPEN GetPen(PEN_TYPE _eType) { return m_arrPen[(UINT)_eType]; }
+	const LPPOINT GetMousePos() { return &m_mouse; }
 public:
 	int Init(HWND _hWnd, POINT _ptResolution);
 	void Progress();
