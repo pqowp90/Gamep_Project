@@ -25,7 +25,8 @@ Scene_Start::~Scene_Start()
 void Scene_Start::Enter()
 {
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\TitleBGM.mp3");
-	SoundMgr::GetInst()->Play(L"BGM");
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
+	SoundMgr::GetInst()->Play(L"BGM", 330 * 2.2f, -100);
 	// Object Ãß°¡
 	Background* bObj = new Background(L"BackGround" ,ResMgr::GetInst()->ImgLoad(L"BackGround", L"Image\\title.bmp"));
 	Animation* bAnim = bObj->GetAnimator()->FindAnimation(L"BackGround");
@@ -37,6 +38,7 @@ void Scene_Start::Enter()
 	Animation* tAnim = tObj->GetAnimator()->FindAnimation(L"TitleText");
 	tObj->SetPos(Vec2(660.f, 300.f));
 	tObj->SetScale(Vec2(2.f, 2.f));
+	tObj->IsDumChit();
 	AddObject(tObj, GROUP_TYPE::TEXT);
 
 	/*Object* pObj = new Player;

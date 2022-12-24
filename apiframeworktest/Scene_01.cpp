@@ -32,11 +32,12 @@ void Scene_01::Enter()
 {
 	SoundMgr::GetInst()->LoadSound(L"BGM1", true, L"Sound\\Scene1BGM.wav");  
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
-	SoundMgr::GetInst()->Play(L"BGM1");
+	SoundMgr::GetInst()->Play(L"BGM1", 517, -100);
 
 	tObj = new Panel(L"StartButton", ResMgr::GetInst()->ImgLoad(L"StartButton", L"Image\\TechnologicPanel.bmp"));
 	tObj->SetScale(Vec2(3.f, 3.f));
 	tObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2, Core::GetInst()->GetResolution().y / 2));
+	tObj->IsDumChit();
 	AddObject(tObj, GROUP_TYPE::BUTTON);
 	
 	aObj = new Arrow(L"LeftArrow", ResMgr::GetInst()->ImgLoad(L"LeftArrow", L"Image\\LeftArrow.bmp"));
