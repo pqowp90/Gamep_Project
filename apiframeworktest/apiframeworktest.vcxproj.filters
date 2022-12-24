@@ -107,6 +107,9 @@
     <Filter Include="Engine\05. Scene\Scene_02">
       <UniqueIdentifier>{8e3faced-a17b-4da7-ab6c-4f20533cfae0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\04. Object\PlayerChoose">
+      <UniqueIdentifier>{00db919d-6bb7-495d-85f0-40aa5f40f84f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -226,6 +229,9 @@
     <ClInclude Include="Scene_02.h">
       <Filter>Engine\05. Scene\Scene_02</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerChoose.h">
+      <Filter>Engine\03. Manager\04. Object\PlayerChoose</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -342,6 +348,9 @@
     </ClCompile>
     <ClCompile Include="Scene_02.cpp">
       <Filter>Engine\05. Scene\Scene_02</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerChoose.cpp">
+      <Filter>Engine\03. Manager\04. Object\PlayerChoose</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
