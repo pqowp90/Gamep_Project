@@ -95,6 +95,9 @@
     <Filter Include="Engine\03. Manager\04. Object\Panel">
       <UniqueIdentifier>{c4c2e9a0-8e20-4172-ad4b-b4ef44df288f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\Stage1">
+      <UniqueIdentifier>{1278fdca-802a-408e-984c-0dc2419a338a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -202,6 +205,9 @@
     <ClInclude Include="Panel.h">
       <Filter>Engine\03. Manager\04. Object\Panel</Filter>
     </ClInclude>
+    <ClInclude Include="Stage1.h">
+      <Filter>Engine\05. Scene\Stage1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -306,6 +312,9 @@
     </ClCompile>
     <ClCompile Include="Panel.cpp">
       <Filter>Engine\03. Manager\04. Object\Panel</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Engine\05. Scene\Stage1</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
