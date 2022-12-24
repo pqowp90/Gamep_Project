@@ -58,7 +58,7 @@ void Animation::Render(HDC _dc, Vec2 scale)
 	//	, RGB(255,0,255));
 	
 	// 오프셋으로
-	vPos += m_vecFrm[m_iCurFrm].vOffset; //  object pos에 offset만큼 추가 이동위치
+	//vPos += m_vecFrm[m_iCurFrm].vOffset; //  object pos에 offset만큼 추가 이동위치
 	TransparentBlt(_dc
 		, (int)(vPos.x - m_vecFrm[m_iCurFrm].vSlice.x / 2.f)
 		, (int)(vPos.y - m_vecFrm[m_iCurFrm].vSlice.y / 2.f)

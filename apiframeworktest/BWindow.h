@@ -28,6 +28,5 @@ protected:
 public:
 	const HWND&					GetWndHandle() { return m_hWnd; }
 	const HINSTANCE&			GetInstanceHandle() { return m_hInstance; }
-
 };
 
