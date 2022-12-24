@@ -77,14 +77,14 @@ void Player::PlayerInput()
 
 	}
 
-	/*if (velocity.y > upMaxForce)
+	if (velocity.y > upMaxForce)
 	{
 		velocity.y = upMaxForce;
 	}
 	else if (velocity.y < -upMaxForce)
 	{
 		velocity.y = -upMaxForce;
-	}*/
+	}
 
 }
 
