@@ -92,6 +92,9 @@
     <Filter Include="Engine\03. Manager\04. Object\TitleText">
       <UniqueIdentifier>{485cd355-3190-405e-82e5-5eac10f9e925}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\ScenePlayerTest">
+      <UniqueIdentifier>{2b8865c6-a8e5-4224-b854-094c34303e41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -196,6 +199,9 @@
     <ClInclude Include="TitleText.h">
       <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
     </ClInclude>
+    <ClInclude Include="ScenePlayerTest.h">
+      <Filter>Engine\05. Scene\ScenePlayerTest</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -297,6 +303,9 @@
     </ClCompile>
     <ClCompile Include="TitleText.cpp">
       <Filter>Engine\03. Manager\04. Object\TitleText</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePlayerTest.cpp">
+      <Filter>Engine\05. Scene\ScenePlayerTest</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,9 +1,20 @@
-﻿  Bullet.cpp
-C:\Users\user\source\repos\apiframeworktest\apiframeworktest\Bullet.cpp(8,1): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(534,5): warning MSB8028: 중간 디렉터리(Debug\)에 다른 프로젝트(apiframeworktest.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
+  Animation.cpp
+C:\Users\USER\Documents\GitHub\Gamep_Project\apiframeworktest\Animation.cpp(29,17): warning C4018: '>=': signed 또는 unsigned가 일치하지 않습니다.
+  Animator.cpp
+  Background.cpp
+  Bullet.cpp
+C:\Users\USER\Documents\GitHub\Gamep_Project\apiframeworktest\Bullet.cpp(11,1): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  Collider.cpp
+  CollisionMgr.cpp
   Core.cpp
+C:\Users\USER\Documents\GitHub\Gamep_Project\apiframeworktest\SoundMgr.h(2,10): fatal  error C1083: 포함 파일을 열 수 없습니다. 'fmod.hpp': No such file or directory
+  EventMgr.cpp
+  func.cpp
   Image.cpp
   KeyMgr.cpp
   main.cpp
+  BWindow.cpp
   Monster.cpp
   Object.cpp
   PathMgr.cpp
@@ -12,10 +23,13 @@ C:\Users\user\source\repos\apiframeworktest\apiframeworktest\Bullet.cpp(8,1): wa
   ResMgr.cpp
   Scene.cpp
   SceneMgr.cpp
+  Scene_01.cpp
+C:\Users\USER\Documents\GitHub\Gamep_Project\apiframeworktest\SoundMgr.h(2,10): fatal  error C1083: 포함 파일을 열 수 없습니다. 'fmod.hpp': No such file or directory
   Scene_Start.cpp
+C:\Users\USER\Documents\GitHub\Gamep_Project\apiframeworktest\SoundMgr.h(2,10): fatal  error C1083: 포함 파일을 열 수 없습니다. 'fmod.hpp': No such file or directory
+  SelectGDI.cpp
   Sound.cpp
+  SoundMgr.cpp
+C:\Users\USER\Documents\GitHub\Gamep_Project\apiframeworktest\SoundMgr.h(2,10): fatal  error C1083: 포함 파일을 열 수 없습니다. 'fmod.hpp': No such file or directory
   TimeMgr.cpp
-  Vec2.cpp
-C:\Users\user\source\repos\apiframeworktest\apiframeworktest\Vec2.cpp(42,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\user\source\repos\apiframeworktest\apiframeworktest\Vec2.cpp(43,5): warning C4244: '초기화 중': 'long'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  apiframeworktest.vcxproj -> C:\Users\user\source\repos\apiframeworktest\Debug\apiframeworktest.exe
+  TitleText.cpp
