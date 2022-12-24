@@ -17,8 +17,8 @@ public:
 public:
     float grabity = 9.81f;
     Vec2 velocity;
-    float upMaxForce = 100;
-    float upForce = 600;
+    float upMaxForce = 300;
+    float upForce = 1200;
 
 private:
     void CreateBullet();

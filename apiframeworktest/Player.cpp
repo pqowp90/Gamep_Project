@@ -73,7 +73,7 @@ void Player::PlayerInput()
 	}
 	else
 	{
-		velocity.y -= grabity * fDT * 30.f;
+		velocity.y -= grabity * fDT * 100.f;
 
 	}
 
@@ -85,6 +85,11 @@ void Player::PlayerInput()
 	{
 		velocity.y = -upMaxForce;
 	}
+
+	/*if (KEY_TAP(KEY::UP))
+	{
+		velocity.y = 0.f;
+	}*/
 
 }
 
