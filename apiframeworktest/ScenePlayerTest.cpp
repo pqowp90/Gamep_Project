@@ -23,6 +23,8 @@ std::mt19937 gen(rd());
 
 // 0 부터 99 까지 균등하게 나타나는 난수열을 생성하기 위해 균등 분포 정의.
 std::uniform_int_distribution<int> dis(0, Core::GetInst()->GetResolution().y);
+PlayerChoose* cObj;
+PlayerChoose* dObj;
 ScenePlayerTest::ScenePlayerTest()
 {
 	
@@ -37,16 +39,16 @@ void ScenePlayerTest::Enter()
 	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
 	// Object 추가
 
-	Object* pObj = new Player;
-	pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y/2.f));
-	//Core::GetInst()->GetResolution().x/2
-	pObj->SetScale(Vec2(3.f, 3.f));
-	pObj->IsDumChit();
-	AddObject(pObj, GROUP_TYPE::PLAYER);
-	PlayerChoose* cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
+	cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
 	cObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f - 50, Core::GetInst()->GetResolution().y / 2.f));
 	cObj->SetScale(Vec2(3.f, 3.f));
+	cObj->IsDumChit();
 	AddObject(cObj, GROUP_TYPE::BUTTON);
+	dObj = new PlayerChoose(L"gold", ResMgr::GetInst()->ImgLoad(L"gold", L"Image\\gold.bmp"));
+	dObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f + 50, Core::GetInst()->GetResolution().y / 2.f));
+	dObj->SetScale(Vec2(3.f, 3.f));
+	dObj->IsDumChit();
+	AddObject(dObj, GROUP_TYPE::BUTTON);
 	//	Object* pOtherPlayer = new Player(*(Player*)pObj);
 		/*Object* pOtherPlayer = pObj->Clone();
 		pOtherPlayer->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f + 100.f, Core::GetInst()->GetResolution().y / 2.f));
@@ -110,7 +112,28 @@ void ScenePlayerTest::Update()
 	{
 		ChangeScene(SCENE_TYPE::SCENE_01);
 	}
-	
+	if (KEY_TAP(KEY::LBTN) && cObj->IsButtonPos() == true)
+	{
+		DeleteObject(GROUP_TYPE::BUTTON);
+		DeleteObject(GROUP_TYPE::BUTTON);
+		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\player.bmp"));
+		pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y / 2.f));
+		//Core::GetInst()->GetResolution().x/2
+		pObj->SetScale(Vec2(3.f, 3.f));
+		pObj->IsDumChit();
+		AddObject(pObj, GROUP_TYPE::PLAYER);
+	}
+	if (KEY_TAP(KEY::LBTN) && dObj->IsButtonPos() == true)
+	{
+		DeleteObject(GROUP_TYPE::BUTTON);
+		DeleteObject(GROUP_TYPE::BUTTON);
+		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni2", L"Image\\player2.bmp"));
+		pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y / 2.f));
+		//Core::GetInst()->GetResolution().x/2
+		pObj->SetScale(Vec2(3.f, 3.f));
+		pObj->IsDumChit();
+		AddObject(pObj, GROUP_TYPE::PLAYER);
+	}
 	//pObj->SetScale(Vec2(3.f, 3.f));
 	
 }
