@@ -24,9 +24,9 @@ Stage1::~Stage1()
 
 void Stage1::Enter()
 {
-	SoundMgr::GetInst()->LoadSound(L"BGM1", true, L"Sound\\Get Lucky.mp3");
+	SoundMgr::GetInst()->LoadSound(L"BGM2", true, L"Sound\\Get Lucky.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
-	SoundMgr::GetInst()->Play(L"BGM1");
+	SoundMgr::GetInst()->Play(L"BGM2");
 	Panel* tObj = new Panel(L"StartButton", ResMgr::GetInst()->ImgLoad(L"StartButton", L"Image\\TechnologicPanel.bmp"));
 	tObj->SetPos(Vec2(300.f, 300.f));
 	tObj->SetScale(Vec2(3.f, 3.f));
