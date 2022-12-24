@@ -13,14 +13,14 @@
 #include "Animation.h"
 #include "SoundMgr.h"
 #include "Core.h"
-Player::Player()
+Player::Player(Image* _Img)
 {
 	// collider 새성
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(20.f, 30.f));
 
 	// image 업로드
-	Image* pImg = ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\player.bmp");
+	Image* pImg = _Img;
 
 	// animator 생성 및 animation 사용
 	CreateAnimator();
@@ -29,7 +29,7 @@ Player::Player()
 
 	// animation offset 위로 올리기. 
 	Animation* pAnim = GetAnimator()->FindAnimation(L"Jiwoofront");
-	for(size_t i=0;i<pAnim->GetMaxFrame();i++)
+	for(size_t i= 0;i<pAnim->GetMaxFrame();i++)
 		pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
 }
 Player::~Player()

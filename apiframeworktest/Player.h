@@ -8,7 +8,7 @@ class Player :
 private:
     Image* m_pImage;
 public:
-    Player();
+    Player(Image* _Img);
     //Player(const Player& _origin) 
     //    : Object(_origin)
     //    , m_pImage(_origin.m_pImage)
