@@ -31,6 +31,7 @@ Object::Object(const Object& _origin)
 {
 	if (_origin.m_pCollider)
 	{
+		
 		m_pCollider = new Collider(*_origin.m_pCollider);
 		m_pCollider->m_pOwner = this;
 	}
