@@ -60,8 +60,8 @@ void Animation::Render(HDC _dc, Vec2 scale)
 	// 오프셋으로
 	//vPos += m_vecFrm[m_iCurFrm].vOffset; //  object pos에 offset만큼 추가 이동위치
 	TransparentBlt(_dc
-		, (int)(vPos.x - m_vecFrm[m_iCurFrm].vSlice.x / 2.f)
-		, (int)(vPos.y - m_vecFrm[m_iCurFrm].vSlice.y / 2.f)
+		, (int)(vPos.x - m_vecFrm[m_iCurFrm].vSlice.x * scale.x / 2.f)
+		, (int)(vPos.y - m_vecFrm[m_iCurFrm].vSlice.y * scale.y / 2.f)
 		, (int)(m_vecFrm[m_iCurFrm].vSlice.x * scale.x)
 		, (int)(m_vecFrm[m_iCurFrm].vSlice.y * scale.y)
 		,  m_pImage->GetDC()						  
