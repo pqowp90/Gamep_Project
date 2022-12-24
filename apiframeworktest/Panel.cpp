@@ -39,8 +39,8 @@ void Panel::Update()
 
 bool Panel::IsButtonPos()
 {
-	if (Core::GetInst()->GetMousePos()->x >= GetPos().x - 20.f && Core::GetInst()->GetMousePos()->y >= GetPos().y + 92.f)
-		if (Core::GetInst()->GetMousePos()->x <= GetPos().x - 20.f + pAnim->GetFrame(0).vSlice.x * 3.f && Core::GetInst()->GetMousePos()->y <= GetPos().y + 92.f + pAnim->GetFrame(0).vSlice.y * 3.f)
+	if (Core::GetInst()->GetMousePos()->x >= GetPos().x && Core::GetInst()->GetMousePos()->y >= GetPos().y)
+		if (Core::GetInst()->GetMousePos()->x <= GetPos().x + pAnim->GetFrame(0).vSlice.x * GetScale().x && Core::GetInst()->GetMousePos()->y <= GetPos().y + pAnim->GetFrame(0).vSlice.y * GetScale().y)
 		return true;
 	else
 		return false;
