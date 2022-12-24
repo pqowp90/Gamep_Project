@@ -24,14 +24,17 @@ private:
 	FMOD::Channel* m_pChannel[(UINT)SOUND_CHANNEL::SC_END];
 private:
 	clock_t start, end;
-	double result, minus;
-	double musicBit;
+	int result, minus;
+	int targetDumchit;
+public:
+	int dumchit;
+	int musicBit;
 
 public:
 	void Init();
 	void LoadSound(const wstring& _strKey, bool _bLoop, const wstring& _strRelativePath);
 	void Play(const wstring& _strKey);
-	void Play(const wstring& _strKey, double bitTime);
+	void Play(const wstring& _strKey, int bitTime, int sync);
 	void Stop(SOUND_CHANNEL _eChannel);
 	void Volume(SOUND_CHANNEL _eChannel, float _fVol);
 	void Pause(SOUND_CHANNEL _eChannel, bool _p);
@@ -39,4 +42,5 @@ private:
 	PSOUNDINFO FindSound(const wstring& _strKey);
 public:
 	void Update();
+	float Lerp(float now, float be, float time);
 };

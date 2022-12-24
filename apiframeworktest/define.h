@@ -1,3 +1,4 @@
+
 #pragma once
 #define SINGLE(type) static type* GetInst()\
 					{\
@@ -14,6 +15,8 @@
 #define KEY_NONE(key) KEY_CHECK(key, KEY_STATE::NONE)
 #define CLONE(type) type* Clone() {return new type(*this);}
 #define PI 3.1415926535897932384f
+
+
 
 enum class KEY_STATE
 {

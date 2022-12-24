@@ -13,10 +13,10 @@
 #include "SceneMgr.h"
 #include "SoundMgr.h"
 #include "ResMgr.h"
+
 ScenePlayerTest::ScenePlayerTest()
 {
 }
-
 ScenePlayerTest::~ScenePlayerTest()
 {
 }
@@ -24,13 +24,15 @@ void ScenePlayerTest::Enter()
 {
 	SoundMgr::GetInst()->LoadSound(L"BGM3", true, L"Sound\\GetLucky.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
-	SoundMgr::GetInst()->Play(L"BGM3");
+	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
 	// Object Ãß°¡
 
+	
 	Object* pObj = new Player;
-	pObj->SetPos(Vec2(0.f, Core::GetInst()->GetResolution().y/2.f));
+	pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y/2.f));
 	//Core::GetInst()->GetResolution().x/2
-	pObj->SetScale(Vec2(3.f,3.f));
+	pObj->SetScale(Vec2(3.f, 3.f));
+	pObj->IsDumChit();
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 	//	Object* pOtherPlayer = new Player(*(Player*)pObj);
 		/*Object* pOtherPlayer = pObj->Clone();
@@ -89,4 +91,7 @@ void ScenePlayerTest::Update()
 	{
 		ChangeScene(SCENE_TYPE::SCENE_01);
 	}
+	
+	//pObj->SetScale(Vec2(3.f, 3.f));
+	
 }

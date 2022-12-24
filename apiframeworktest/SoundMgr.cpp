@@ -1,8 +1,11 @@
 #include "pch.h"
 #include "SoundMgr.h"
 #include "PathMgr.h"
+#include "define.h"
+#include "TimeMgr.h"
+#include "Core.h"
 SoundMgr::SoundMgr()
-	:m_pSystem(nullptr)
+	:m_pSystem(nullptr), dumchit(0), targetDumchit(1), minus(0)
 {}
 SoundMgr::~SoundMgr()
 {
@@ -55,9 +58,9 @@ void SoundMgr::Play(const wstring& _strKey)
 	m_pSystem->playSound(ptSound->pSound, NULL, false, &m_pChannel[(UINT)eChannel]);
 }
 
-void SoundMgr::Play(const wstring& _strKey, double bitTime)
+void SoundMgr::Play(const wstring& _strKey, int bitTime, int sync)
 {
-	start = clock();
+	start = clock() + sync;
 	musicBit = bitTime;
 	PSOUNDINFO ptSound = FindSound(_strKey);
 	if (!ptSound)
@@ -95,12 +98,26 @@ PSOUNDINFO SoundMgr::FindSound(const wstring& _strKey)
 
 void SoundMgr::Update()
 {
+	
 	end = clock();
-	result = (double)(end - start) - minus;
+	result = (end - start) - minus;
 
-	if (result > musicBit)
+	if (result >= musicBit)
 	{
 		minus += musicBit;
-
+		targetDumchit = musicBit;
 	}
+	if(musicBit!=0)
+		targetDumchit -= musicBit * fDT;
+	dumchit = targetDumchit;
+
+
+	//static wchar_t szBuffer[255] = {};
+	//swprintf_s(szBuffer, L"DumChit : %d", dumchit);
+	////		wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
+	//SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
+}
+float SoundMgr::Lerp(float now, float be, float time)
+{
+	return now + time * (be - now);
 }

@@ -4,6 +4,7 @@
 //#include "TimeMgr.h"
 #include "Collider.h"
 #include "Animator.h"
+#include "SoundMgr.h"
 //void Object::Update()
 //{
 //
@@ -15,6 +16,7 @@ Object::Object()
 	, m_pCollider(nullptr)
 	, m_pAnimator(nullptr)
 	, m_bAlive(true)
+	, isDumChit(false)
 {
 }
 
@@ -25,6 +27,7 @@ Object::Object(const Object& _origin)
 	, m_pCollider(nullptr)
 	, m_pAnimator(nullptr)
 	, m_bAlive(true)
+	, isDumChit(false)
 {
 	if (_origin.m_pCollider)
 	{
@@ -81,11 +84,19 @@ void Object::Component_Render(HDC _dc)
 	{
 		m_pCollider->Render(_dc);
 	}
-	if (nullptr != m_pAnimator)
-		m_pAnimator->Render(_dc, m_vScale);
+	if (!isDumChit) {
+		if (nullptr != m_pAnimator)
+			m_pAnimator->Render(_dc, m_vScale);
+	}
+	else
+	{
+		if (nullptr != m_pAnimator) {
+			Vec2 dumchitScale;
+			dumchitScale.x = (float)SoundMgr::GetInst()->dumchit / 900.f + m_vScale.x;
+			dumchitScale.y = (float)SoundMgr::GetInst()->dumchit / 900.f + m_vScale.x;
+			m_pAnimator->Render(_dc, dumchitScale);
+		}
+	}
 }
-float Object::Lerp(float now, float be, float time)
-{
-	return now + time * (be - now);
-}
+
 

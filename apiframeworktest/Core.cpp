@@ -72,6 +72,7 @@ void Core::Update()
 
 	// ==== Scene Update ====
 	SceneMgr::GetInst()->Update();
+	SoundMgr::GetInst()->Update();
 
 	// ==== 충돌 체크 ====
 	CollisionMgr::GetInst()->Update();

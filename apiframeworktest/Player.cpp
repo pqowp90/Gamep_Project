@@ -12,6 +12,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "SoundMgr.h"
+#include "Core.h"
 Player::Player()
 {
 	// collider »õ¼º
@@ -63,6 +64,10 @@ void Player::Update()
 	}*/
 	vPos.x += velocity.x * fDT;
 	vPos.y -= velocity.y * fDT;
+	if (vPos.y <= 10)
+		vPos.y = 10;
+	if (vPos.y >= Core::GetInst()->GetResolution().y-10)
+		vPos.y = Core::GetInst()->GetResolution().y-10;
 
 	SetPos(vPos);
 	GetAnimator()->Update();
@@ -87,6 +92,7 @@ void Player::PlayerInput()
 	{
 		velocity.y = -upMaxForce;
 	}
+	
 
 	/*if (KEY_TAP(KEY::UP))
 	{

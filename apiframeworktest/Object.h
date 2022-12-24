@@ -16,6 +16,7 @@ private:
 public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
+	void IsDumChit() { isDumChit = true; }
 	const Vec2& GetPos() { return m_vPos; }
 	const Vec2& GetScale() { return m_vScale; }
 	Collider* GetCollider() { return m_pCollider; }
@@ -35,11 +36,13 @@ public:
 	virtual void	StayCollision(Collider* _pOther) {}
 	virtual void	EnterCollision(Collider* _pOther) {}
 	virtual void	ExitCollision(Collider* _pOther) {}
+public:
+	bool isDumChit;
 
 
 	void	Component_Render(HDC _dc);
 
-	static float Lerp(float now, float be, float time);
+	
 
 	virtual Object* Clone() abstract;
 public:
