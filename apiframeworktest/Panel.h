@@ -1,11 +1,11 @@
 #pragma once
-#pragma once
 #include "Object.h"
 class Image;
 class Panel : public Object
 {
 private:
     Image* m_tImage;
+    Animation* pAnim;
 public:
     Panel(std::wstring _Key, Image* _Img);
     ~Panel();
@@ -17,6 +17,3 @@ public:
     void Render(HDC _dc) override;
     bool IsButtonPos();
 };
-
-
-
