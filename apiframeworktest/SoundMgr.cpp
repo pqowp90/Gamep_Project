@@ -62,7 +62,7 @@ void SoundMgr::Play(const wstring& _strKey, int bitTime, int sync)
 {
 	start = clock() + sync;
 	musicBit = bitTime;
-	musicBit = 0;
+	minus = 0;
 	PSOUNDINFO ptSound = FindSound(_strKey);
 	if (!ptSound)
 		return;

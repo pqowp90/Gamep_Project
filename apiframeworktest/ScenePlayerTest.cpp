@@ -13,9 +13,18 @@
 #include "SceneMgr.h"
 #include "SoundMgr.h"
 #include "ResMgr.h"
+#include <random>
+// 시드값을 얻기 위한 random_device 생성.
+std::random_device rd;
 
+// random_device 를 통해 난수 생성 엔진을 초기화 한다.
+std::mt19937 gen(rd());
+
+// 0 부터 99 까지 균등하게 나타나는 난수열을 생성하기 위해 균등 분포 정의.
+std::uniform_int_distribution<int> dis(0, Core::GetInst()->GetResolution().y);
 ScenePlayerTest::ScenePlayerTest()
 {
+	
 }
 ScenePlayerTest::~ScenePlayerTest()
 {
@@ -73,6 +82,12 @@ void ScenePlayerTest::Enter()
 		//AddObject(pObj, GROUP_TYPE::DEFAULT);
 		// 충돌 지정 
 		// Player - Monster 그룹 간의 충돌 체크
+		Monster* pMonsterObj = new Monster;
+		pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)dis(gen)));
+		pMonsterObj->SetScale(Vec2(50.f, 50.f));
+		pMonsterObj->SetSpeed(300.f);
+		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
+		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
 
