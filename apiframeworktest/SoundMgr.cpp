@@ -62,6 +62,7 @@ void SoundMgr::Play(const wstring& _strKey, int bitTime, int sync)
 {
 	start = clock() + sync;
 	musicBit = bitTime;
+	musicBit = 0;
 	PSOUNDINFO ptSound = FindSound(_strKey);
 	if (!ptSound)
 		return;
@@ -111,11 +112,13 @@ void SoundMgr::Update()
 		targetDumchit -= musicBit * fDT;
 	dumchit = targetDumchit;
 
+	if (dumchit <= 0)dumchit = 0;
 
-	//static wchar_t szBuffer[255] = {};
-	//swprintf_s(szBuffer, L"DumChit : %d", dumchit);
-	////		wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
-	//SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
+
+	static wchar_t szBuffer[255] = {};
+	swprintf_s(szBuffer, L"DumChit : %d", musicBit);
+	//		wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
+	SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
 }
 float SoundMgr::Lerp(float now, float be, float time)
 {
