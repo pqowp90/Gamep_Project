@@ -13,15 +13,8 @@
 #include "SceneMgr.h"
 #include "SoundMgr.h"
 #include "ResMgr.h"
-#include <random>
-// 시드값을 얻기 위한 random_device 생성.
-std::random_device rd;
+#include <time.h>
 
-// random_device 를 통해 난수 생성 엔진을 초기화 한다.
-std::mt19937 gen(rd());
-
-// 0 부터 99 까지 균등하게 나타나는 난수열을 생성하기 위해 균등 분포 정의.
-std::uniform_int_distribution<int> dis(0, Core::GetInst()->GetResolution().y);
 ScenePlayerTest::ScenePlayerTest()
 {
 	
@@ -35,7 +28,7 @@ void ScenePlayerTest::Enter()
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
 	// Object 추가
-
+	srand(time(NULL));
 	
 	Object* pObj = new Player;
 	pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y/2.f));
@@ -82,12 +75,8 @@ void ScenePlayerTest::Enter()
 		//AddObject(pObj, GROUP_TYPE::DEFAULT);
 		// 충돌 지정 
 		// Player - Monster 그룹 간의 충돌 체크
-		Monster* pMonsterObj = new Monster;
-		pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)dis(gen)));
-		pMonsterObj->SetScale(Vec2(50.f, 50.f));
-		pMonsterObj->SetSpeed(300.f);
-		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
+	
+		
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
 
@@ -106,7 +95,14 @@ void ScenePlayerTest::Update()
 	{
 		ChangeScene(SCENE_TYPE::SCENE_01);
 	}
-	
+
+	Monster* pMonsterObj = new Monster;
+	pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)(rand() % Core::GetInst()->GetResolution().x)));
+	pMonsterObj->SetScale(Vec2(50.f, 50.f));
+	pMonsterObj->SetSpeed(300.f);
+	pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
+	pMonsterObj->IsDumChit();
+	AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	//pObj->SetScale(Vec2(3.f, 3.f));
 	
 }
