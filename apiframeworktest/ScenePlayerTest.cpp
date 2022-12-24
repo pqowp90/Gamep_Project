@@ -23,6 +23,7 @@ ScenePlayerTest::~ScenePlayerTest()
 void ScenePlayerTest::Enter()
 {
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\TitleBGM.mp3");
+	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM");
 	// Object Ãß°¡
 
