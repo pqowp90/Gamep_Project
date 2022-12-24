@@ -101,6 +101,12 @@
     <Filter Include="Engine\05. Scene\ScenePlayerTest">
       <UniqueIdentifier>{2fed61cb-a73d-42f9-b71b-060622bbcf7e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\04. Object\Arrow">
+      <UniqueIdentifier>{807929dc-7d83-4d7c-8c2d-e67a6d5618e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\05. Scene\Scene_02">
+      <UniqueIdentifier>{8e3faced-a17b-4da7-ab6c-4f20533cfae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -214,6 +220,12 @@
     <ClInclude Include="ScenePlayerTest.h">
       <Filter>Engine\05. Scene\ScenePlayerTest</Filter>
     </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>Engine\03. Manager\04. Object\Arrow</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_02.h">
+      <Filter>Engine\05. Scene\Scene_02</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -324,6 +336,12 @@
     </ClCompile>
     <ClCompile Include="ScenePlayerTest.cpp">
       <Filter>Engine\05. Scene\ScenePlayerTest</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>Engine\03. Manager\04. Object\Arrow</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_02.cpp">
+      <Filter>Engine\05. Scene\Scene_02</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

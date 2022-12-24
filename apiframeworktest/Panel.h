@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "Object.h"
 class Image;
 class Panel : public Object
@@ -17,6 +16,3 @@ public:
     void Render(HDC _dc) override;
     bool IsButtonPos();
 };
-
-
-
