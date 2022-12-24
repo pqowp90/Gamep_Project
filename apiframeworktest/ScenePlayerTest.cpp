@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Background.h"
 #include "TitleText.h"
+#include "PlayerChoose.h"
 #include "Monster.h"
 #include "Core.h"
 #include "Image.h"
@@ -27,13 +28,16 @@ void ScenePlayerTest::Enter()
 	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
 	// Object Ãß°¡
 
-	
 	Object* pObj = new Player;
 	pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y/2.f));
 	//Core::GetInst()->GetResolution().x/2
 	pObj->SetScale(Vec2(3.f, 3.f));
 	pObj->IsDumChit();
 	AddObject(pObj, GROUP_TYPE::PLAYER);
+	PlayerChoose* cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
+	cObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f - 50, Core::GetInst()->GetResolution().y / 2.f));
+	cObj->SetScale(Vec2(3.f, 3.f));
+	AddObject(cObj, GROUP_TYPE::BUTTON);
 	//	Object* pOtherPlayer = new Player(*(Player*)pObj);
 		/*Object* pOtherPlayer = pObj->Clone();
 		pOtherPlayer->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f + 100.f, Core::GetInst()->GetResolution().y / 2.f));
