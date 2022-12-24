@@ -10,6 +10,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "Core.h"
+Animation* pAnim;
 Panel::Panel(std::wstring _Key, Image* _Img)
 {
 	Image* bImg = _Img;

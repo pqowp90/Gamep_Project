@@ -10,6 +10,7 @@
 #include "Animator.h"
 #include "Animation.h"
 #include "Core.h"
+Animation* aAnim;
 Arrow::Arrow(std::wstring _Key, Image* _Img)
 {
 	Image* bImg = _Img;
@@ -38,8 +39,8 @@ void Arrow::Render(HDC _dc)
 
 bool Arrow::IsButtonPos()
 {
-	if (Core::GetInst()->GetMousePos()->x >= GetPos().x - 20.f && Core::GetInst()->GetMousePos()->y >= GetPos().y + 92.f)
-		if (Core::GetInst()->GetMousePos()->x <= GetPos().x - 20.f + aAnim->GetFrame(0).vSlice.x * 3.f && Core::GetInst()->GetMousePos()->y <= GetPos().y + 92.f + aAnim->GetFrame(0).vSlice.y * 3.f)
+	if (Core::GetInst()->GetMousePos()->x >= GetPos().x + 91.f && Core::GetInst()->GetMousePos()->y >= GetPos().y + 92.f)
+		if (Core::GetInst()->GetMousePos()->x <= GetPos().x + 91.f + aAnim->GetFrame(0).vSlice.x * 3.f && Core::GetInst()->GetMousePos()->y <= GetPos().y + 92.f + aAnim->GetFrame(0).vSlice.y * 3.f)
 			return true;
 		else
 			return false;

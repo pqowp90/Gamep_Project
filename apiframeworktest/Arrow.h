@@ -5,7 +5,6 @@ class Arrow : public Object
 {
 private:
     Image* m_tImage;
-    Animation* aAnim;
 public:
     Arrow(std::wstring _Key, Image* _Img);
     ~Arrow();
