@@ -110,6 +110,9 @@
     <Filter Include="Engine\03. Manager\04. Object\PlayerChoose">
       <UniqueIdentifier>{00db919d-6bb7-495d-85f0-40aa5f40f84f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\ScenePlayerTest2">
+      <UniqueIdentifier>{e832817a-d705-4c26-b5c8-3762c89e3b1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -238,6 +241,9 @@
     <ClInclude Include="LoopedBackground.h">
       <Filter>Engine\03. Manager\04. Object\Background</Filter>
     </ClInclude>
+    <ClInclude Include="ScenePlayerTest2.h">
+      <Filter>Engine\05. Scene\ScenePlayerTest2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -363,6 +369,9 @@
     </ClCompile>
     <ClCompile Include="LoopedBackground.cpp">
       <Filter>Engine\03. Manager\04. Object\Background</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenePlayerTest2.cpp">
+      <Filter>Engine\05. Scene\ScenePlayerTest2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
