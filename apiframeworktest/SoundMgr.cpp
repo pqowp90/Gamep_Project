@@ -103,6 +103,11 @@ void SoundMgr::Update()
 {
 	
 	end = clock();
+	result = (end - start);
+	if (result >= endTime)
+	{
+		SceneMgr::GetInst()->ChangeScene((SCENE_TYPE::START));
+	}
 	result = (end - start) - minus;
 
 	if (result >= musicBit)

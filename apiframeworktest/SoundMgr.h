@@ -29,6 +29,7 @@ private:
 public:
 	int dumchit;
 	int musicBit;
+	int endTime;
 
 public:
 	void Init();
