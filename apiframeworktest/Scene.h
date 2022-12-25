@@ -32,6 +32,7 @@ public:
 	}
 	void DeleteGroup(GROUP_TYPE _eTarget);
 	void DeleteAll();
+	virtual void EnemySpawn();
 public:
 	Scene();
 	virtual ~Scene();

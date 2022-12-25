@@ -114,6 +114,7 @@ void SoundMgr::Update()
 	{
 		minus += musicBit;
 		targetDumchit = musicBit;
+		SceneMgr::GetInst()->EnemySpawn();
 	}
 	if(musicBit!=0)
 		targetDumchit -= musicBit * fDT;
