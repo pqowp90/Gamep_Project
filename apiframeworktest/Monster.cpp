@@ -14,6 +14,7 @@ Monster::Monster(bool who)
 {
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(40.f, 40.f));
+	SetName(L"Monster");
 	Image* pImg;
 	if (!who)
 	{

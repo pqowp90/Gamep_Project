@@ -150,8 +150,8 @@ void Player::EnterCollision(Collider* _pOther)
 	Object* pOtherObj = _pOther->GetObj();
 	if (pOtherObj->GetName() == L"Monster")
 	{
-		DeleteObject(this);
-		SceneMgr::GetInst()->ChangeScene((SCENE_TYPE::START));
+		//DeleteObject(this);
+		ChangeScene((SCENE_TYPE::START));
 	}
 }
 

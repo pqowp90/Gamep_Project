@@ -19,7 +19,6 @@ public:
     Vec2 velocity;
     float upMaxForce = 300;
     float upForce = 1200;
-
 private:
     void CreateBullet();
 

@@ -104,11 +104,12 @@ void ScenePlayerTest::Update()
 	if (KEY_TAP(KEY::ESC))
 	{
 		ChangeScene(SCENE_TYPE::SCENE_01);
+		
 	}
 	if (KEY_TAP(KEY::LBTN) && cObj->IsButtonPos() == true)
 	{
-		DeleteObject(GROUP_TYPE::BUTTON);
-		DeleteObject(GROUP_TYPE::BUTTON);
+		DeleteObject(cObj);
+		DeleteObject(dObj);
 		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\player.bmp"), true);
 		pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y / 2.f));
 		//Core::GetInst()->GetResolution().x/2
@@ -119,8 +120,8 @@ void ScenePlayerTest::Update()
 	}
 	if (KEY_TAP(KEY::LBTN) && dObj->IsButtonPos() == true)
 	{
-		DeleteObject(GROUP_TYPE::BUTTON);
-		DeleteObject(GROUP_TYPE::BUTTON);
+		DeleteObject(cObj);
+		DeleteObject(dObj);
 		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni2", L"Image\\player.bmp"), false);
 		pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y / 2.f));
 		//Core::GetInst()->GetResolution().x/2
