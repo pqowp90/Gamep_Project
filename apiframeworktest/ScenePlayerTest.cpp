@@ -35,7 +35,7 @@ LoopedBackground* bObj2;
 
 ScenePlayerTest::ScenePlayerTest()
 {
-	
+
 }
 ScenePlayerTest::~ScenePlayerTest()
 {
@@ -44,17 +44,17 @@ void ScenePlayerTest::Enter()
 {
 	srand(time(NULL));
 
-	SoundMgr::GetInst()->LoadSound(L"BGM3", true, L"Sound\\GetLucky.mp3");
+	SoundMgr::GetInst()->LoadSound(L"BGM4", true, L"Sound\\Scene1BGM.wav");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
-	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
+	SoundMgr::GetInst()->Play(L"BGM4", 471, -100);
 	SoundMgr::GetInst()->endTime = 180000;
 	// Object Ãß°¡
 
 	bObj1 = new LoopedBackground(L"LoopedBackground", ResMgr::GetInst()->ImgLoad(L"LoopedBackground", L"Image\\demo04_PixelSky.bmp"));
-	bObj1->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f, Core::GetInst()->GetResolution().y/2.f));
+	bObj1->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f, Core::GetInst()->GetResolution().y / 2.f));
 	bObj1->SetScale(Vec2(5.4f, 5.4f));
 	bObj1->speed = 500.f;
-	bObj1->poolX_Pos = -(float)Core::GetInst()->GetResolution().x/2.0f;
+	bObj1->poolX_Pos = -(float)Core::GetInst()->GetResolution().x / 2.0f;
 	AddObject(bObj1, GROUP_TYPE::LOOPED_BACKGROUND);
 
 	bObj2 = new LoopedBackground(L"LoopedBackground", ResMgr::GetInst()->ImgLoad(L"LoopedBackground", L"Image\\demo04_PixelSky.bmp"));
@@ -63,7 +63,7 @@ void ScenePlayerTest::Enter()
 	bObj2->speed = 500.f;
 	bObj2->poolX_Pos = -(float)Core::GetInst()->GetResolution().x / 2.0f;
 	AddObject(bObj2, GROUP_TYPE::LOOPED_BACKGROUND);
-	//fwf
+
 	cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
 	cObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f - 50, Core::GetInst()->GetResolution().y / 2.f));
 	cObj->SetScale(Vec2(3.f, 3.f));
@@ -75,11 +75,21 @@ void ScenePlayerTest::Enter()
 	dObj->SetScale(Vec2(3.f, 3.f));
 	dObj->IsDumChit();
 	AddObject(dObj, GROUP_TYPE::BUTTON);
-	
-
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
 
+}
+
+void ScenePlayerTest::EnemySpawn()
+{
+	Monster* pMonsterObj = new Monster(rand() % 2);
+	pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)(rand() % Core::GetInst()->GetResolution().x)));
+	pMonsterObj->SetScale(Vec2((float)(rand() % 2 + 1), (float)(rand() % 2 + 1)));
+	pMonsterObj->SetSpeed(300.f);
+	pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
+	pMonsterObj->IsDumChit();
+	pMonsterObj->SetDumChitScale(1.f);
+	AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 }
 
 void ScenePlayerTest::Exit()
@@ -120,14 +130,6 @@ void ScenePlayerTest::Update()
 		AddObject(pObj, GROUP_TYPE::PLAYER);
 	}
 
-	Monster* pMonsterObj = new Monster;
-	pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)(rand() % Core::GetInst()->GetResolution().x)));
-	pMonsterObj->SetScale(Vec2(50.f, 50.f));
-	pMonsterObj->SetSpeed(300.f);
-	pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-	pMonsterObj->IsDumChit();
-	AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
-	
 	//pObj->SetScale(Vec2(3.f, 3.f));
-	
+
 }

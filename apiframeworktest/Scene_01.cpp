@@ -19,7 +19,6 @@
 Panel* tObj;
 Arrow* aObj;
 Arrow* bObj;
-Panel* tPlayerTest;
 Scene_01::Scene_01()
 {
 }
@@ -52,10 +51,6 @@ void Scene_01::Enter()
 	bObj->SetScale(Vec2(3.f, 3.f));
 	AddObject(bObj, GROUP_TYPE::BUTTON);
 	
-	tPlayerTest = new Panel(L"StartButton", ResMgr::GetInst()->ImgLoad(L"Button", L"Image\\TechnologicPanel.bmp"));
-	tPlayerTest->SetPos(Vec2(10.f, 10.f));
-	tPlayerTest->SetScale(Vec2(0.5f, 0.5f));
-	AddObject(tPlayerTest, GROUP_TYPE::BUTTON);
 }
 
 void Scene_01::Exit()
@@ -78,10 +73,6 @@ void Scene_01::Update()
 		if (bObj->IsButtonPos() == true)
 		{
 			ChangeScene(SCENE_TYPE::SCENE_02);
-		}
-		if (tPlayerTest->IsButtonPos() == true)
-		{
-			ChangeScene(SCENE_TYPE::PLAYERTEST);
 		}
 	}
 }
