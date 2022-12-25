@@ -5,7 +5,6 @@ class Background : public Object
 {
 private:
     Image* m_bImage;
-    bool isLoop;
 public:
     //Background();
     Background(std::wstring _Key, Image* _Img);

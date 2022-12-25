@@ -28,6 +28,8 @@ std::mt19937 gen(rd());
 std::uniform_int_distribution<int> dis(0, Core::GetInst()->GetResolution().y);
 PlayerChoose* cObj;
 PlayerChoose* dObj;
+LoopedBackground* bObj1;
+LoopedBackground* bObj2;
 
 ScenePlayerTest::ScenePlayerTest()
 {
@@ -43,11 +45,19 @@ void ScenePlayerTest::Enter()
 	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
 	// Object Ãß°¡
 
-	LoopedBackground* bObj = new LoopedBackground(L"LoopedBackground", ResMgr::GetInst()->ImgLoad(L"LoopedBackground", L"Image\\demo04_PixelSky.bmp"));
-	Animation* bAnim = bObj->GetAnimator()->FindAnimation(L"LoopedBackground");
-	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f, Core::GetInst()->GetResolution().y/2.f));
-	bObj->SetScale(Vec2(5.4f, 5.4f));
-	AddObject(bObj, GROUP_TYPE::LOOPED_BACKGROUND);
+	bObj1 = new LoopedBackground(L"LoopedBackground", ResMgr::GetInst()->ImgLoad(L"LoopedBackground", L"Image\\demo04_PixelSky.bmp"));
+	bObj1->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f, Core::GetInst()->GetResolution().y/2.f));
+	bObj1->SetScale(Vec2(5.4f, 5.4f));
+	bObj1->speed = 500.f;
+	bObj1->poolX_Pos = -(float)Core::GetInst()->GetResolution().x/2.0f;
+	AddObject(bObj1, GROUP_TYPE::LOOPED_BACKGROUND);
+
+	bObj2 = new LoopedBackground(L"LoopedBackground", ResMgr::GetInst()->ImgLoad(L"LoopedBackground", L"Image\\demo04_PixelSky.bmp"));
+	bObj2->SetPos(Vec2(Core::GetInst()->GetResolution().x * 1.5f, Core::GetInst()->GetResolution().y / 2.f));
+	bObj2->SetScale(Vec2(5.4f, 5.4f));
+	bObj2->speed = 500.f;
+	bObj2->poolX_Pos = -(float)Core::GetInst()->GetResolution().x / 2.0f;
+	AddObject(bObj2, GROUP_TYPE::LOOPED_BACKGROUND);
 
 	cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
 	cObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f - 50, Core::GetInst()->GetResolution().y / 2.f));

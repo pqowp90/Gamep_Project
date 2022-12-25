@@ -5,7 +5,9 @@ class LoopedBackground : public Object
 {
 private:
     Image* m_bImage;
-    bool isLoop;
+public:
+    float poolX_Pos;
+    float speed;
 public:
     //Background();
     LoopedBackground(std::wstring _Key, Image* _Img);
