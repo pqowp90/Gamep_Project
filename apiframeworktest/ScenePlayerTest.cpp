@@ -75,16 +75,21 @@ void ScenePlayerTest::Enter()
 	dObj->SetScale(Vec2(3.f, 3.f));
 	dObj->IsDumChit();
 	AddObject(dObj, GROUP_TYPE::BUTTON);
-	
-		Monster* pMonsterObj = new Monster;
-		pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)dis(gen)));
-		pMonsterObj->SetScale(Vec2(50.f, 50.f));
-		pMonsterObj->SetSpeed(300.f);
-		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
 
+}
+
+void ScenePlayerTest::EnemySpawn()
+{
+	Monster* pMonsterObj = new Monster(rand() % 2);
+	pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)(rand() % Core::GetInst()->GetResolution().x)));
+	pMonsterObj->SetScale(Vec2((float)(rand() % 2 + 1), (float)(rand() % 2 + 1)));
+	pMonsterObj->SetSpeed(300.f);
+	pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
+	pMonsterObj->IsDumChit();
+	pMonsterObj->SetDumChitScale(1.f);
+	AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 }
 
 void ScenePlayerTest::Exit()
@@ -124,14 +129,6 @@ void ScenePlayerTest::Update()
 		pObj->SetDumChitScale(0.3f);
 		AddObject(pObj, GROUP_TYPE::PLAYER);
 	}
-
-	Monster* pMonsterObj = new Monster;
-	pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)(rand() % Core::GetInst()->GetResolution().x)));
-	pMonsterObj->SetScale(Vec2(50.f, 50.f));
-	pMonsterObj->SetSpeed(300.f);
-	pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-	pMonsterObj->IsDumChit();
-	AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	
 	//pObj->SetScale(Vec2(3.f, 3.f));
 	

@@ -61,7 +61,7 @@ void Scene_02::Update()
 	{
 		if (t2Obj->IsButtonPos() == true)
 		{
-			ChangeScene(SCENE_TYPE::START);
+			ChangeScene(SCENE_TYPE::PLAYERTEST);
 		}
 		if (a2Obj->IsButtonPos() == true)
 		{
