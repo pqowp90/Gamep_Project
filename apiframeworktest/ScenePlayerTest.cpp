@@ -63,7 +63,7 @@ void ScenePlayerTest::Enter()
 	bObj2->speed = 500.f;
 	bObj2->poolX_Pos = -(float)Core::GetInst()->GetResolution().x / 2.0f;
 	AddObject(bObj2, GROUP_TYPE::LOOPED_BACKGROUND);
-
+	//fwf
 	cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
 	cObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f - 50, Core::GetInst()->GetResolution().y / 2.f));
 	cObj->SetScale(Vec2(3.f, 3.f));
