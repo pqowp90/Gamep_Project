@@ -13,7 +13,7 @@
 #include "Animation.h"
 #include "SoundMgr.h"
 #include "Core.h"
-Player::Player(Image* _Img)
+Player::Player(Image* _Img, bool who)
 {
 	// collider 새성
 	CreateCollider();
@@ -21,10 +21,10 @@ Player::Player(Image* _Img)
 
 	// image 업로드
 	Image* pImg = _Img;
-
+	
 	// animator 생성 및 animation 사용
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2(0.f, 0.f), Vec2(33.f, 57.f), Vec2(33.f, 0.f), 2, 0.2f);
+	GetAnimator()->CreateAnimation(L"Jiwoofront", pImg, Vec2((who) ? 0.f : 66.f, 0.f), Vec2(33.f, 57.f), Vec2(33.f, 0.f), 2, 0.1f);
 	GetAnimator()->Play(L"Jiwoofront", true);
 
 	// animation offset 위로 올리기. 
@@ -98,7 +98,10 @@ void Player::PlayerInput()
 	{
 		velocity.y = 0.f;
 	}*/
-
+	if (KEY_TAP(KEY::SPACE))
+	{
+		CreateBullet();
+	}
 }
 
 void Player::CreateBullet()
@@ -111,14 +114,14 @@ void Player::CreateBullet()
 	pBullet->SetName(L"Bullet_Player");
 	pBullet->SetPos(vBulletPos);
 	pBullet->SetScale(Vec2(25.f, 25.f));
-	pBullet->SetDir(Vec2(0.f, -1.f));
+	pBullet->SetDir(Vec2(1.f, 0.f));
 	CreateObject(pBullet, GROUP_TYPE::BULLET_PLAYER);
 	//Scene* pCurScene = SceneMgr::GetInst()->GetCurScene();
 	//pCurScene->AddObject(pBullet,GROUP_TYPE::BULLET);
 }
 void Player::Render(HDC _dc)
 {
-	Component_Render(_dc);
+	Component_Render(_dc);	
 	/*int Width = (int)m_pImage->GetWidth();
 	int Height = (int)m_pImage->GetHeight();
 

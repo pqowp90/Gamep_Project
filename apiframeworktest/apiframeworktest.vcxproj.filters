@@ -232,6 +232,12 @@
     <ClInclude Include="PlayerChoose.h">
       <Filter>Engine\03. Manager\04. Object\PlayerChoose</Filter>
     </ClInclude>
+    <ClInclude Include="Game_Math.h">
+      <Filter>Engine\02. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopedBackground.h">
+      <Filter>Engine\03. Manager\04. Object\Background</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="apiframeworktest.rc">
@@ -351,6 +357,12 @@
     </ClCompile>
     <ClCompile Include="PlayerChoose.cpp">
       <Filter>Engine\03. Manager\04. Object\PlayerChoose</Filter>
+    </ClCompile>
+    <ClCompile Include="Game_Math.cpp">
+      <Filter>Engine\02. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="LoopedBackground.cpp">
+      <Filter>Engine\03. Manager\04. Object\Background</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

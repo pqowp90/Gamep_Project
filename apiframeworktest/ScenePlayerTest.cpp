@@ -2,7 +2,6 @@
 #include "ScenePlayerTest.h"
 #include "Object.h"
 #include "Player.h"
-#include "Background.h"
 #include "TitleText.h"
 #include "PlayerChoose.h"
 #include "Monster.h"
@@ -14,6 +13,10 @@
 #include "SceneMgr.h"
 #include "SoundMgr.h"
 #include "ResMgr.h"
+#include "Animation.h"
+#include "Animator.h"
+#include "LoopedBackground.h"
+#include "Background.h"
 #include <random>
 // 시드값을 얻기 위한 random_device 생성.
 std::random_device rd;
@@ -25,6 +28,7 @@ std::mt19937 gen(rd());
 std::uniform_int_distribution<int> dis(0, Core::GetInst()->GetResolution().y);
 PlayerChoose* cObj;
 PlayerChoose* dObj;
+
 ScenePlayerTest::ScenePlayerTest()
 {
 	
@@ -39,10 +43,17 @@ void ScenePlayerTest::Enter()
 	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
 	// Object 추가
 
+	LoopedBackground* bObj = new LoopedBackground(L"LoopedBackground", ResMgr::GetInst()->ImgLoad(L"LoopedBackground", L"Image\\demo04_PixelSky.bmp"));
+	Animation* bAnim = bObj->GetAnimator()->FindAnimation(L"LoopedBackground");
+	bObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f, Core::GetInst()->GetResolution().y/2.f));
+	bObj->SetScale(Vec2(5.4f, 5.4f));
+	AddObject(bObj, GROUP_TYPE::LOOPED_BACKGROUND);
+
 	cObj = new PlayerChoose(L"silver", ResMgr::GetInst()->ImgLoad(L"silver", L"Image\\silver.bmp"));
 	cObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f - 50, Core::GetInst()->GetResolution().y / 2.f));
 	cObj->SetScale(Vec2(3.f, 3.f));
 	cObj->IsDumChit();
+
 	AddObject(cObj, GROUP_TYPE::BUTTON);
 	dObj = new PlayerChoose(L"gold", ResMgr::GetInst()->ImgLoad(L"gold", L"Image\\gold.bmp"));
 	dObj->SetPos(Vec2(Core::GetInst()->GetResolution().x / 2.f + 50, Core::GetInst()->GetResolution().y / 2.f));
@@ -108,7 +119,7 @@ void ScenePlayerTest::Exit()
 void ScenePlayerTest::Update()
 {
 	Scene::Update();
-	if (KEY_TAP(KEY::ENTER))
+	if (KEY_TAP(KEY::ESC))
 	{
 		ChangeScene(SCENE_TYPE::SCENE_01);
 	}
@@ -116,24 +127,27 @@ void ScenePlayerTest::Update()
 	{
 		DeleteObject(GROUP_TYPE::BUTTON);
 		DeleteObject(GROUP_TYPE::BUTTON);
-		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\player.bmp"));
+		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni", L"Image\\player.bmp"), true);
 		pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y / 2.f));
 		//Core::GetInst()->GetResolution().x/2
 		pObj->SetScale(Vec2(3.f, 3.f));
 		pObj->IsDumChit();
+		pObj->SetDumChitScale(0.3f);
 		AddObject(pObj, GROUP_TYPE::PLAYER);
 	}
 	if (KEY_TAP(KEY::LBTN) && dObj->IsButtonPos() == true)
 	{
 		DeleteObject(GROUP_TYPE::BUTTON);
 		DeleteObject(GROUP_TYPE::BUTTON);
-		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni2", L"Image\\player2.bmp"));
+		Object* pObj = new Player(ResMgr::GetInst()->ImgLoad(L"PlayerAni2", L"Image\\player.bmp"), false);
 		pObj->SetPos(Vec2(100.f, Core::GetInst()->GetResolution().y / 2.f));
 		//Core::GetInst()->GetResolution().x/2
 		pObj->SetScale(Vec2(3.f, 3.f));
 		pObj->IsDumChit();
+		pObj->SetDumChitScale(0.3f);
 		AddObject(pObj, GROUP_TYPE::PLAYER);
 	}
+	
 	//pObj->SetScale(Vec2(3.f, 3.f));
 	
 }

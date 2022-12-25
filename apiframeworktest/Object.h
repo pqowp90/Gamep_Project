@@ -17,6 +17,7 @@ public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
 	void IsDumChit() { isDumChit = true; }
+	void SetDumChitScale(float value) { dumChitScale = value; }
 	const Vec2& GetPos() { return m_vPos; }
 	const Vec2& GetScale() { return m_vScale; }
 	Collider* GetCollider() { return m_pCollider; }
@@ -38,6 +39,7 @@ public:
 	virtual void	ExitCollision(Collider* _pOther) {}
 public:
 	bool isDumChit;
+	float dumChitScale;
 
 
 	void	Component_Render(HDC _dc);

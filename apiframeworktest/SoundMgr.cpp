@@ -4,6 +4,7 @@
 #include "define.h"
 #include "TimeMgr.h"
 #include "Core.h"
+#include "Game_Math.h"
 SoundMgr::SoundMgr()
 	:m_pSystem(nullptr), dumchit(0), targetDumchit(1), minus(0)
 {}
@@ -110,17 +111,13 @@ void SoundMgr::Update()
 	}
 	if(musicBit!=0)
 		targetDumchit -= musicBit * fDT;
-	dumchit = targetDumchit;
+	dumchit = Game_Math::Game_Lerp(dumchit, targetDumchit, fDT * 10.f);
 
 	if (dumchit <= 0)dumchit = 0;
 
 
-	static wchar_t szBuffer[255] = {};
-	swprintf_s(szBuffer, L"DumChit : %d", musicBit);
-	//		wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
-	SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
-}
-float SoundMgr::Lerp(float now, float be, float time)
-{
-	return now + time * (be - now);
+	//static wchar_t szBuffer[255] = {};
+	//swprintf_s(szBuffer, L"DumChit : %d", musicBit);
+	////wsprintf(szBuffer, L"FPS : %d,  DT: %lf", m_iFPS, m_dDT);
+	//SetWindowText(Core::GetInst()->GetWndHandle(), szBuffer);
 }

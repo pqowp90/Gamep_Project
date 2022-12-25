@@ -17,6 +17,7 @@ Object::Object()
 	, m_pAnimator(nullptr)
 	, m_bAlive(true)
 	, isDumChit(false)
+	, dumChitScale(1)
 {
 }
 
@@ -92,10 +93,10 @@ void Object::Component_Render(HDC _dc)
 	else
 	{
 		if (nullptr != m_pAnimator) {
-			Vec2 dumchitScale;
-			dumchitScale.x = (float)SoundMgr::GetInst()->dumchit / 900.f + m_vScale.x;
-			dumchitScale.y = (float)SoundMgr::GetInst()->dumchit / 900.f + m_vScale.x;
-			m_pAnimator->Render(_dc, dumchitScale);
+			Vec2 _dumchitScale;
+			_dumchitScale.x = dumChitScale * ((float)SoundMgr::GetInst()->dumchit / (float)SoundMgr::GetInst()->musicBit) + m_vScale.x;
+			_dumchitScale.y = dumChitScale * ((float)SoundMgr::GetInst()->dumchit / (float)SoundMgr::GetInst()->musicBit) + m_vScale.x;
+			m_pAnimator->Render(_dc, _dumchitScale);
 		}
 	}
 }

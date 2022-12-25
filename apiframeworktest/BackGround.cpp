@@ -9,13 +9,13 @@
 #include "ResMgr.h"
 #include "Animator.h"
 #include "Animation.h"
-Animation* bAnim;
+
 Background::Background(std::wstring _Key, Image* _Img)
 {
 	CreateAnimator();
 	GetAnimator()->CreateAnimation(_Key, _Img, Vec2(0.f, 0.f), Vec2(840.f, 424.f), Vec2(840.f, 0.f), 2, 0.45f);
 	GetAnimator()->Play(_Key, true);
-	 bAnim = GetAnimator()->FindAnimation(_Key);
+	Animation* bAnim = GetAnimator()->FindAnimation(_Key);
 	for (size_t i = 0; i < bAnim->GetMaxFrame(); i++)
 		bAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
 }

@@ -42,5 +42,5 @@ private:
 	PSOUNDINFO FindSound(const wstring& _strKey);
 public:
 	void Update();
-	float Lerp(float now, float be, float time);
+
 };
