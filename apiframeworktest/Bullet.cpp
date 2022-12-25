@@ -5,6 +5,7 @@
 #include "PathMgr.h"
 #include "ResMgr.h"
 #include "Collider.h"
+#include "Core.h"
 Bullet::Bullet() 
 	: m_fTheta(3.f * M_PI/2.f)
 	, m_vDir(Vec2(1.f,1.f))
@@ -29,6 +30,10 @@ void Bullet::Update()
 	//vPos.y -= 700.f * sinf(m_fTheta) * fDT;
 	vPos.x += 700.f * m_vDir.x * fDT;
 	vPos.y += 700.f * m_vDir.y * fDT;
+	if (vPos.x >= Core::GetInst()->GetResolution().x)
+	{
+		DeleteObject(this);
+	}
 	SetPos(vPos);
 }
 

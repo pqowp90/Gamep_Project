@@ -76,12 +76,7 @@ void ScenePlayerTest::Enter()
 	dObj->IsDumChit();
 	AddObject(dObj, GROUP_TYPE::BUTTON);
 	
-		Monster* pMonsterObj = new Monster;
-		pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)dis(gen)));
-		pMonsterObj->SetScale(Vec2(50.f, 50.f));
-		pMonsterObj->SetSpeed(300.f);
-		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
+
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 	CollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::BULLET_PLAYER, GROUP_TYPE::MONSTER);
 
