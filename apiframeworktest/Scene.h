@@ -23,6 +23,7 @@ public:
 	}
 	void DeleteObject( GROUP_TYPE _eType)
 	{
+		
 		m_vecObj[(UINT)_eType].pop_back();
 	}
 	const vector<Object*>& GetGroupObject(GROUP_TYPE _eType)

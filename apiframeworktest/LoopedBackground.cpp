@@ -13,7 +13,7 @@ Animation* bAnim;
 LoopedBackground::LoopedBackground(std::wstring _Key, Image* _Img) : poolX_Pos(0)
 {
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(_Key, _Img, Vec2(0.f, 0.f), Vec2(240.f, 135.f), Vec2(240.f, 0.f), 1, 1);
+	GetAnimator()->CreateAnimation(_Key, _Img, Vec2(0.f, 0.f), Vec2(240.f, 135.f), Vec2(0.f, 0.f), 3, 1);
 	GetAnimator()->Play(_Key, true);
 	bAnim = GetAnimator()->FindAnimation(_Key);
 	for (size_t i = 0; i < bAnim->GetMaxFrame(); i++)

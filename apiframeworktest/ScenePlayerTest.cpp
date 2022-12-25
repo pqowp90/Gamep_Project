@@ -18,6 +18,7 @@
 #include "LoopedBackground.h"
 #include "Background.h"
 #include <random>
+#include <time.h>
 // 시드값을 얻기 위한 random_device 생성.
 std::random_device rd;
 
@@ -40,6 +41,8 @@ ScenePlayerTest::~ScenePlayerTest()
 }
 void ScenePlayerTest::Enter()
 {
+	srand(time(NULL));
+
 	SoundMgr::GetInst()->LoadSound(L"BGM3", true, L"Sound\\GetLucky.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM3", 517, -100);
@@ -157,6 +160,13 @@ void ScenePlayerTest::Update()
 		pObj->SetDumChitScale(0.3f);
 		AddObject(pObj, GROUP_TYPE::PLAYER);
 	}
+	Monster* pMonsterObj = new Monster;
+	pMonsterObj->SetPos(Vec2((float)Core::GetInst()->GetResolution().x, (float)(rand() % Core::GetInst()->GetResolution().x)));
+	pMonsterObj->SetScale(Vec2(50.f, 50.f));
+	pMonsterObj->SetSpeed(300.f);
+	pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
+	pMonsterObj->IsDumChit();
+	AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	
 	//pObj->SetScale(Vec2(3.f, 3.f));
 	
