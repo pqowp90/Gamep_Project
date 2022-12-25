@@ -189,6 +189,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="ScenePlayerTest.h" />
+    <ClInclude Include="ScenePlayerTest2.h" />
     <ClInclude Include="Scene_01.h" />
     <ClInclude Include="Scene_02.h" />
     <ClInclude Include="Scene_Start.h" />
@@ -234,6 +235,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="ScenePlayerTest.cpp" />
+    <ClCompile Include="ScenePlayerTest2.cpp" />
     <ClCompile Include="Scene_01.cpp" />
     <ClCompile Include="Scene_02.cpp" />
     <ClCompile Include="Scene_Start.cpp" />

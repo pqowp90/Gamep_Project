@@ -60,6 +60,7 @@ enum class SCENE_TYPE
 	TOOL,
 	SCENE_02,
 	PLAYERTEST,
+	PLAYERTEST2,
 	END,
 };
 

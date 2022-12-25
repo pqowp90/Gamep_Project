@@ -4,6 +4,7 @@
 #include "Scene_01.h"
 #include "Scene_02.h"
 #include "ScenePlayerTest.h"
+#include "ScenePlayerTest2.h"
 #include "EventMgr.h"
 SceneMgr::SceneMgr()
 	: m_pCurScene(nullptr)
@@ -46,6 +47,8 @@ void SceneMgr::Init()
 	m_arrScene[(UINT)SCENE_TYPE::SCENE_02]->SetName(L"Scene 02");
 	m_arrScene[(UINT)SCENE_TYPE::PLAYERTEST] = new ScenePlayerTest;
 	m_arrScene[(UINT)SCENE_TYPE::PLAYERTEST]->SetName(L"ScenePlayerTest");
+	m_arrScene[(UINT)SCENE_TYPE::PLAYERTEST2] = new ScenePlayerTest2;
+	m_arrScene[(UINT)SCENE_TYPE::PLAYERTEST2]->SetName(L"ScenePlayerTest2");
 
 //	m_arrScene[(UINT)SCENE_TYPE::TOOL] = new Scene_Tool;
 //	m_arrScene[(UINT)SCENE_TYPE::SCENE_02] = new Scene02;
