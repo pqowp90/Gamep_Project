@@ -30,6 +30,6 @@ public:
     void PlayerInput();
     void Render(HDC _dc) override;
 public:
-    void EnterCollision(Collider* _pOther);
+    void EnterCollision(Collider* _pOther) override;
 };
 
