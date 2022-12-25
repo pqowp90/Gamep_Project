@@ -5,6 +5,7 @@
 #include "TimeMgr.h"
 #include "Core.h"
 #include "Game_Math.h"
+#include "SceneMgr.h"
 SoundMgr::SoundMgr()
 	:m_pSystem(nullptr), dumchit(0), targetDumchit(1), minus(0)
 {}
@@ -102,6 +103,11 @@ void SoundMgr::Update()
 {
 	
 	end = clock();
+	result = (end - start);
+	if (result >= endTime)
+	{
+		SceneMgr::GetInst()->ChangeScene((SCENE_TYPE::START));
+	}
 	result = (end - start) - minus;
 
 	if (result >= musicBit)

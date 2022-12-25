@@ -39,7 +39,7 @@ Player::~Player()
 }
 void Player::Update()
 {
-	
+
 	Vec2 vPos = GetPos();
 	PlayerInput();
 	/*if(KEY_HOLD(KEY::UP))
@@ -143,3 +143,15 @@ void Player::Render(HDC _dc)
 	//    , RGB(255,0,255));
 
 }
+
+void Bullet::EnterCollision(Collider* _pOther)
+{
+	Object* pOtherObj = _pOther->GetObj();
+	if (pOtherObj->GetName() == L"Monster")
+	{
+		DeleteObject(this);
+		SceneMgr::GetInst()->ChangeScene((SCENE_TYPE::START));
+	}
+}
+
+

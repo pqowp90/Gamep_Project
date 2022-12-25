@@ -12,7 +12,7 @@ private:
 	Scene* m_pCurScene;						  // ÇöÀç ¾À
 public:
 	Scene* GetCurScene() { return m_pCurScene; }
-private:
+public:
 	void ChangeScene(SCENE_TYPE _eNext);
 	friend class EventMgr;
 public:
