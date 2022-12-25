@@ -3,15 +3,40 @@
 #include "TimeMgr.h"
 #include "Collider.h"
 #include <random>
-Monster::Monster()
+#include "ResMgr.h"
+#include "Animator.h"
+#include "Animation.h"
+Monster::Monster(bool who)
 	: m_fSpeed(100.f)
-	, m_fMaxDistance(50.f)
 	, m_vCenterPos(Vec2(0.f,0.f))
 	, m_iDir(1)
 	, m_iHp(5)
 {
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(40.f, 40.f));
+	Image* pImg;
+	if (!who)
+	{
+		pImg = ResMgr::GetInst()->ImgLoad(L"enemy", L"Image\\Drone1.bmp");
+		CreateAnimator();
+		GetAnimator()->CreateAnimation(L"enemy", pImg, Vec2(0.f, 0.f), Vec2(100.f, 64.f), Vec2(100.f, 0.f), 6, 0.1f);
+		GetAnimator()->Play(L"enemy", true);
+		Animation* pAnim = GetAnimator()->FindAnimation(L"enemy");
+		for (size_t i = 0; i < pAnim->GetMaxFrame(); i++)
+			pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
+	}
+	else
+	{
+		pImg = ResMgr::GetInst()->ImgLoad(L"enemy2", L"Image\\drone3-sheet.bmp");
+		CreateAnimator();
+		GetAnimator()->CreateAnimation(L"enemy2", pImg, Vec2(0.f, 0.f), Vec2(32.f, 32.f), Vec2(32.f, 0.f), 8, 0.1f);
+		GetAnimator()->Play(L"enemy2", true);
+		Animation* pAnim = GetAnimator()->FindAnimation(L"enemy2");
+		for (size_t i = 0; i < pAnim->GetMaxFrame(); i++)
+			pAnim->GetFrame(i).vOffset = Vec2(10.f, -50.f);
+	}
+
+	// animation offset 위로 올리기. 
 }
 
 Monster::~Monster()
@@ -49,5 +74,10 @@ void Monster::EnterCollision(Collider* _pOther)
 		if(m_iHp <= 0)
 			DeleteObject(this);
 	}
+}
+
+void Monster::Render(HDC _dc)
+{
+	Component_Render(_dc);
 }
 

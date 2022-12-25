@@ -15,6 +15,9 @@ public:
 private:
 	void ChangeScene(SCENE_TYPE _eNext);
 	friend class EventMgr;
+	
+public:
+	void EnemySpawn();
 public:
 	void	 Init();
 	void	 Update();

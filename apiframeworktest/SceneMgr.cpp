@@ -30,6 +30,11 @@ void SceneMgr::ChangeScene(SCENE_TYPE _eNext)
 	m_pCurScene->Enter();
 }
 
+void SceneMgr::EnemySpawn()
+{
+	m_pCurScene->EnemySpawn();
+}
+
 void SceneMgr::Init()
 {
 	// Scene »ý¼º

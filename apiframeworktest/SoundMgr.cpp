@@ -5,6 +5,7 @@
 #include "TimeMgr.h"
 #include "Core.h"
 #include "Game_Math.h"
+#include "SceneMgr.h"
 SoundMgr::SoundMgr()
 	:m_pSystem(nullptr), dumchit(0), targetDumchit(1), minus(0)
 {}
@@ -108,6 +109,7 @@ void SoundMgr::Update()
 	{
 		minus += musicBit;
 		targetDumchit = musicBit;
+		SceneMgr::GetInst()->EnemySpawn();
 	}
 	if(musicBit!=0)
 		targetDumchit -= musicBit * fDT;

@@ -72,6 +72,10 @@ void Scene::DeleteAll()
 	}
 }
 
+void Scene::EnemySpawn()
+{
+}
+
 Scene::Scene()
 {
 }
