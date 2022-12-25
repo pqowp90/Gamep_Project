@@ -144,7 +144,8 @@ void Player::Render(HDC _dc)
 
 }
 
-void Bullet::EnterCollision(Collider* _pOther)
+
+void Player::EnterCollision(Collider* _pOther)
 {
 	Object* pOtherObj = _pOther->GetObj();
 	if (pOtherObj->GetName() == L"Monster")
