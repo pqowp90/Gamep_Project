@@ -33,6 +33,8 @@ void Scene_01::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM1", true, L"Sound\\Scene1BGM.wav");  
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM1", 517, -100);
+	SoundMgr::GetInst()->endTime = 1000000000;
+
 
 	tObj = new Panel(L"StartButton", ResMgr::GetInst()->ImgLoad(L"StartButton", L"Image\\TechnologicPanel.bmp"));
 	tObj->SetScale(Vec2(3.f, 3.f));

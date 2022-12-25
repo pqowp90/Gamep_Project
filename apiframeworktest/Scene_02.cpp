@@ -32,6 +32,7 @@ void Scene_02::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM2", true, L"Sound\\GetLucky.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM2", 471, -100);
+	SoundMgr::GetInst()->endTime = 1000000000;
 
 	t2Obj = new Panel(L"StartButton2", ResMgr::GetInst()->ImgLoad(L"StartButton2", L"Image\\Get Lucky Panel.bmp"));
 	t2Obj->SetScale(Vec2(3.f, 3.f));

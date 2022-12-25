@@ -27,6 +27,7 @@ void Scene_Start::Enter()
 	SoundMgr::GetInst()->LoadSound(L"BGM", true, L"Sound\\TitleBGM.mp3");
 	SoundMgr::GetInst()->Stop(SOUND_CHANNEL::SC_BGM);
 	SoundMgr::GetInst()->Play(L"BGM", 330 * 2.2f, -100);
+	SoundMgr::GetInst()->endTime = 1000000000;
 	// Object Ãß°¡
 	Background* bObj = new Background(L"BackGround" ,ResMgr::GetInst()->ImgLoad(L"BackGround", L"Image\\title.bmp"));
 	Animation* bAnim = bObj->GetAnimator()->FindAnimation(L"BackGround");
